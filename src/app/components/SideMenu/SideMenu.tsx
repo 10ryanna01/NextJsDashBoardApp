@@ -22,7 +22,7 @@ const SideMenu = (props: Props) => {
   const [sidebarAnimate, setSidebarAnimate] = useState("");
   const [navMenuTrigger, setNavMenuTrigger] = useState(false);
   let myuuid = uuidv4();
-  const menuLinks = ["/", "analytics", "profile", "settings", "/"];
+  const menuLinks = ["", "analytics", "profile", "settings", ""];
   const menuLinksTranslations = [
     "Home",
     "Analytics",
@@ -43,7 +43,7 @@ const SideMenu = (props: Props) => {
     />,
   ];
 
-  const handleSidebarToggle = (text: string) => {
+  const handleSidebarToggle = (e: React.MouseEvent<HTMLElement>) => {
     setSidebarVisible((sidebarVisible) => !sidebarVisible);
     {
       !sidebarVisible
@@ -93,9 +93,7 @@ const SideMenu = (props: Props) => {
             role="button"
             aria-pressed={navMenuTrigger}
             className="dashApp__UI__sidebar__toggler"
-            onClick={(event: React.MouseEvent<HTMLElement>) =>
-              handleSidebarToggle
-            }
+            onClick={handleSidebarToggle}
           >
             {sidebarVisible ? (
               <>
