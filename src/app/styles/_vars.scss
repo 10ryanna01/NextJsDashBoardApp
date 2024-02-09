@@ -1,0 +1,42 @@
+// =============================
+// start vars
+//==============================
+$c-scheme--bg: #242c3e;
+$c-scheme--text: #f2bba8;
+$c-scheme--button-bg: #5169b3;
+$c-scheme--highlight: #c73d51;
+
+@mixin card-hover-border {
+  transition: border ease-in-out 0.4s;
+  &:hover {
+    border-color: $c-scheme--text;
+    transition: border ease-in-out 0.4s;
+  }
+}
+
+
+
+
+
+// =================================
+// resets
+// =================================
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+ body{
+    background: $c-scheme--bg ;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+
+ }
+ ul{
+  padding:0;
+  margin:0;
+ }
+
+ 

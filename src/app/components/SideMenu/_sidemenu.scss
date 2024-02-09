@@ -1,0 +1,96 @@
+// =============================
+// start sidemenue
+//==============================
+
+.dashApp__UI__sidebar {
+    box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+    position: absolute;
+    left: 0;
+    top: 92px;
+    z-index: 11;
+    display: flex;
+    flex-flow: column;
+    background: $c-scheme--bg;
+    border-right: 2px solid $c-scheme--highlight;
+    border-top: 0;
+    width: 50px;
+  
+    justify-content: flex-start;
+    align-content: flex-start;
+    transition: all 0.1s ease-in-out;
+    height: auto;
+  
+    .dashApp__UI__sidebar__navList__item__copy {
+      position: absolute;
+      margin: 0 auto;
+      align-self: center;
+      opacity: 0;
+    }
+  
+    @media (max-width: 680px) {
+      // top: 90px;
+    }
+  
+    &__active {
+      width: 150px !important;
+      transition: width 0.1s ease-in;
+  
+      border-top: 0;
+  
+      .dashApp__UI__sidebar__navList__item__copy {
+        position: absolute;
+        top: 15px;
+        left: 60px;
+        transition: opacity ease-in 0.3s;
+        opacity: 1;
+      }
+    }
+    &__toggler {
+      @extend .dashApp__UI__utility__icon;
+      background: $c-scheme--text;
+      border: 0;
+      border-radius: 100%;
+      margin: 1rem 0;
+      margin-left: 3px;
+    }
+  
+    &__navList {
+      list-style: none;
+      display: flex;
+      flex-flow: column;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+  
+    &__navList__item {
+      display: contents;
+  
+      &__button {
+        position: relative;
+        @extend .dashApp__UI__utility__button--reset;
+        padding: 0;
+        padding-left: 3px;
+      }
+  
+      &__link {
+        position: relative;
+        display: flex;
+        flex-flow: row;
+        background: $c-scheme--bg;
+        @extend .dashApp__UI__utility__copy__body;
+        color: $c-scheme--text;
+        transition: all ease-in-out 0.2s;
+        &:hover {
+          color: $c-scheme--highlight;
+          background: $c-scheme--text;
+          transition: all ease-in-out 0.2s;
+        }
+      }
+    }
+  }
+  
+  // =============================
+  // end side menue
+  //==============================
+  

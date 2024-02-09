@@ -1,0 +1,791 @@
+// =============================
+// start utilities
+//==============================
+
+.dashApp__UI__utility {
+  &__primary-button {
+    padding: 0.5rem 1rem;
+    background: $c-scheme--button-bg;
+    color: $c-scheme--text;
+    border: 2px dashed $c-scheme--bg;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    min-width: 300px;
+    cursor: pointer;
+    &:hover {
+      color: $c-scheme--text;
+      background: transparent;
+      border: 2px dashed $c-scheme--text;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__secondary-button {
+    @extend .dashApp__UI__utility__primary-button;
+    background: $c-scheme--text;
+    color: $c-scheme--button-bg;
+
+    &:hover {
+      color: $c-scheme--text;
+      background: $c-scheme--button-bg;
+    }
+  }
+
+  &__danger-button {
+    @extend .dashApp__UI__utility__primary-button;
+    background: $c-scheme--highlight;
+    border: 2px dashed $c-scheme--bg;
+
+    &:hover {
+      border: 4px dashed $c-scheme--bg;
+    }
+  }
+
+  &__main-content-offset {
+    padding-left: 65px;
+  }
+  &__no-overflow {
+    overflow: hidden;
+  }
+
+  &__border--off {
+    border: 0 !important;
+  }
+
+  &__offset__40px {
+    padding-left: 40px;
+    gap: 3rem;
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 680px) {
+      font-size: 1.5rem;
+      padding-left: 20px;
+    }
+  }
+
+  &__d-flex-col {
+    display: flex;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__d-contents {
+    display: contents;
+  }
+  &__p-left__desktop {
+    padding-left: 15px !important ;
+    @media screen and (max-width: 860px) {
+      padding-left: 65px !important  ;
+    }
+  }
+
+  &__desktop__view {
+    display: block;
+    @media screen and (max-width: 680px) {
+      display: none;
+    }
+  }
+
+  &__signin__copy {
+    @extend .dashApp__UI__utility__copy__h5;
+    @extend .dashApp__UI__utility__desktop__view;
+  }
+
+  &__button--reset {
+    background: transparent;
+    border: 0;
+  }
+  &__sr {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  &__list__wrapper {
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+      display: contents;
+    }
+  }
+
+  &__copy__h1 {
+    font-size: 2rem;
+    line-height: 1;
+    color: $c-scheme--text;
+    margin: 0;
+    align-self: center;
+    @media screen and (max-width: 680px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__copy__h2 {
+    font-size: 1.2rem;
+    line-height: 1;
+    color: $c-scheme--text;
+    margin: 0;
+  }
+  &__copy__h3 {
+    font-size: 1.1rem;
+    line-height: 1;
+    color: $c-scheme--text;
+    margin: 0;
+  }
+
+  &__copy__h4 {
+    font-size: 1rem;
+    line-height: 1;
+    color: $c-scheme--text;
+  }
+  &__copy__h5 {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: $c-scheme--text;
+  }
+
+  &__page__title {
+    @extend .dashApp__UI__utility__copy__h2;
+    // container offset padding added
+    @extend .dashApp__UI__utility__main-content-offset;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+  &__copy__body {
+    font-size: 1rem;
+    line-height: 1;
+    color: $c-scheme--text;
+  }
+  &__sort__icon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: $c-scheme--text;
+    fill: $c-scheme--text;
+    background: transparent;
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    display: inline;
+    vertical-align: inherit;
+    transform: scale(0.6);
+    padding: 0;
+  }
+  &__icon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    color: $c-scheme--button-bg;
+    fill: $c-scheme--highlight;
+    background: transparent;
+    padding: 0;
+    position: relative;
+  }
+
+  &__chartGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 20%;
+    grid-template-rows: 1fr;
+    grid-template-areas: "itemA itemB";
+
+    padding: 1rem 0;
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "  itemB   "
+        "  itemA   ";
+    }
+
+    &__itemA {
+      display: flex;
+      grid-area: itemA;
+      flex-flow: column;
+    }
+
+    &__itemB {
+      display: flex;
+      flex-flow: column;
+      grid-area: itemB;
+      @media screen and (max-width: 860px) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  &__grid--x2 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "itemA itemB itemC";
+    gap: 1rem;
+    @extend .dashApp__UI__utility__main-content-offset;
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "itemA"
+        "itemB"
+        "itemC";
+    }
+    &__title {
+      text-align: center;
+      @extend .dashApp__UI__utility__copy__h4;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+    }
+
+    &__itemA {
+      grid-area: itemA;
+      display: flex;
+      flex-flow: column;
+      padding: 1rem;
+      border: 2px solid $c-scheme--highlight;
+      justify-content: center;
+      box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+      @include card-hover-border;
+    }
+    &__itemB {
+      grid-area: itemB;
+      display: flex;
+      flex-flow: column;
+      padding: 1rem;
+      box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+      border: 2px solid $c-scheme--highlight;
+      justify-content: center;
+      @include card-hover-border;
+    }
+    &__itemC {
+      grid-area: itemC;
+      display: flex;
+      flex-flow: column;
+      padding: 1rem;
+      box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+      border: 2px solid $c-scheme--highlight;
+      justify-content: center;
+      @include card-hover-border;
+    }
+  }
+  &__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "itemA itemB itemC itemD";
+    gap: 1rem;
+    @extend .dashApp__UI__utility__main-content-offset;
+
+    @media screen and (max-width: 860px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "itemA  itemB"
+        "itemC itemD";
+    }
+    @media screen and (max-width: 520px) {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "itemA "
+        "itemB"
+        "itemC"
+        "itemD";
+    }
+  }
+
+  &__grid__itemA {
+    grid-area: itemA;
+    display: flex;
+    padding: 1rem;
+    border: 2px solid $c-scheme--highlight;
+    justify-content: center;
+    box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+    @include card-hover-border;
+  }
+  &__grid__itemB {
+    grid-area: itemB;
+    display: flex;
+    padding: 1rem;
+    box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+    border: 2px solid $c-scheme--highlight;
+    justify-content: center;
+    @include card-hover-border;
+  }
+  &__grid__itemC {
+    grid-area: itemC;
+    display: flex;
+    padding: 1rem;
+    box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+    border: 2px solid $c-scheme--highlight;
+    justify-content: center;
+    @include card-hover-border;
+  }
+  &__grid__itemD {
+    grid-area: itemD;
+    display: flex;
+    padding: 1rem;
+    box-shadow: 12px 5px 22px -8px rgba(0, 0, 0, 0.82);
+    border: 2px solid $c-scheme--highlight;
+    justify-content: center;
+    @include card-hover-border;
+  }
+
+  &__grid__footer {
+    grid-area: footer;
+
+    display: flex;
+    padding: 1rem;
+    border: 2px solid blue;
+  }
+}
+
+// =============================
+// Start From Controls
+//==============================
+
+.dashApp__UI__form {
+  color: $c-scheme--text;
+  @extend .dashApp__UI__utility__copy__body;
+  @extend .dashApp__UI__utility__main-content-offset;
+
+  @media screen and (max-width: 500px) {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+  &__button {
+    @extend .dashApp__UI__utility__primary-button;
+  }
+
+  &__error {
+    @extend .dashApp__UI__utility__copy__h5;
+    color: $c-scheme--highlight;
+    padding: 0.5rem 0;
+    padding-bottom: 0.1rem;
+    display: flex;
+  }
+
+  &__fail {
+    transition: border-color ease-in 0.3s;
+    border-bottom: $c-scheme--highlight dashed 1px;
+  }
+
+  &__row {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    margin-bottom: 1rem;
+    height: 90px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  &__label {
+    @extend .dashApp__UI__utility__copy__body;
+    margin-bottom: 1rem;
+
+    display: flex;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &__input-text {
+    position: relative;
+    border: 1px $c-scheme--button-bg solid;
+    padding: 0.5rem 0;
+    @extend .dashApp__UI__utility__copy__body;
+    text-align: center;
+    text-transform: capitalize;
+    background: transparent;
+    width: 100%;
+    box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+  }
+
+  &__input-text-email {
+    position: relative;
+    border: 1px $c-scheme--button-bg solid;
+    padding: 0.5rem 0;
+    @extend .dashApp__UI__utility__copy__body;
+    text-align: center;
+    background: transparent;
+    width: 100%;
+    box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+  }
+  &__input-select {
+    position: relative;
+    border: 1px $c-scheme--button-bg solid;
+    padding: 0.5rem 0;
+    @extend .dashApp__UI__utility__copy__body;
+    text-align: center;
+    text-transform: capitalize;
+    background: transparent;
+    width: 100%;
+    box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+
+    option {
+      background: $c-scheme--bg;
+      padding: 0.5rem 0;
+
+      &:hover {
+        background: $c-scheme--highlight;
+        background: $c-scheme--highlight;
+        box-shadow: 0 0 10px 100px #000 inset;
+      }
+    }
+  }
+
+  &__paginate-button-group {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @media screen and (max-width: 500px) {
+      justify-content: center;
+    }
+
+    &__button {
+      background: transparent;
+      color: $c-scheme--text;
+      border: 0;
+      display: contents;
+      height: 30px;
+
+      .dashApp__UI__utility__icon {
+        transition: all ease-in-out 0.3s;
+        &:hover {
+          transition: all ease-in-out 0.3s;
+          fill: $c-scheme--text;
+        }
+      }
+    }
+
+    &__button--text {
+      border: $c-scheme--highlight 2px solid;
+      border-radius: 5px;
+      text-transform: capitalize;
+      background: transparent;
+      cursor: pointer;
+      padding: 0.35rem 1rem;
+      height: 30px;
+      display: flex;
+      @extend .dashApp__UI__utility__copy__body;
+      color: $c-scheme--highlight;
+      align-self: center;
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        background: $c-scheme--text;
+        transition: all ease-in-out 0.3s;
+        border-color: transparent;
+      }
+      &:disabled {
+        opacity: 0.5;
+
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+    }
+  }
+  &__gotopage {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    align-items: center;
+
+    &__number {
+      border: $c-scheme--button-bg 2px dashed;
+      max-width: 70px;
+      color: $c-scheme--text;
+      display: flex;
+      @extend .dashApp__UI__utility__copy__h5;
+
+      padding: 0.3rem;
+      background: transparent;
+      border-radius: 5px;
+      height: 30px;
+      text-align: center;
+      text-indent: 10px;
+    }
+    &__label {
+      display: flex;
+      @extend .dashApp__UI__utility__copy__h5;
+      text-transform: capitalize;
+    }
+  }
+
+  &__dropdown {
+    list-style-type: none;
+    text-decoration: none;
+    transition: all ease-in-out 0.3s;
+    color: $c-scheme--text;
+    background: transparent;
+    border: 2px solid $c-scheme--highlight;
+    border-radius: 5px;
+    width: 210px;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    margin-left: auto;
+    padding: 0.3rem 0;
+    text-align: center;
+    @extend .dashApp__UI__utility__copy__h5;
+    cursor: pointer;
+    height: 30px;
+    transition: all ease-in-out 0.3s;
+
+    @media screen and (max-width: 500px) {
+      position: absolute;
+      top: -2rem;
+    }
+
+    &:hover {
+      transition: all ease-in-out 0.3s;
+      border-color: $c-scheme--text;
+      color: $c-scheme--text;
+      svg {
+        transition: all ease-in-out 0.3s;
+        color: $c-scheme--text;
+        fill: $c-scheme--highlight;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-flow: column;
+      width: 210px;
+      position: relative;
+      top: -24px;
+      left: -1px;
+      padding: 0;
+      margin: 0;
+      border: 2px solid $c-scheme--highlight;
+
+      border-radius: 5px;
+      border-top: 0;
+      overflow: hidden;
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        transition: all ease-in-out 0.3s;
+        border-color: $c-scheme--text;
+      }
+    }
+
+    &__item {
+      display: flex;
+      background: $c-scheme--bg;
+      border: 0;
+      width: 100%;
+      padding: 0;
+      list-style-type: none;
+      color: $c-scheme--text;
+      cursor: pointer;
+      justify-content: center;
+      height: 30px;
+      align-items: center;
+
+      &:hover {
+        background: $c-scheme--text;
+        color: $c-scheme--highlight;
+        transition: all ease-in-out 0.3s;
+      }
+    }
+
+    &__icon {
+      @extend .dashApp__UI__utility__icon;
+      transform: scale(0.6);
+      position: absolute;
+      right: 0;
+      top: -0.4rem;
+      z-index: 11;
+    }
+  }
+}
+
+// =============================
+// start chart cards
+//==============================
+
+.dashApp__UI__chartcards {
+  display: flex;
+  flex-flow: column;
+  @extend .dashApp__UI__utility__main-content-offset;
+  gap: 1rem;
+  position: relative;
+
+  &--row {
+    @extend .dashApp__UI__utility__main-content-offset;
+    display: grid;
+    gap: 1rem;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    transition: width ease-in-out 0.25s;
+    @media screen and (max-width: 960px) {
+      grid-template-columns: 1fr 1fr;
+      height: fit-content;
+      width: fit-content;
+
+      transition: width ease-in-out 0.25s;
+    }
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+
+      transition: width ease-in-out 0.25s;
+    }
+
+    &__item {
+      @extend .dashApp__UI__chartcards__item;
+      display: flex;
+    }
+  }
+
+  &__item {
+    border: 2px solid $c-scheme--button-bg;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+    text-transform: capitalize;
+    @include card-hover-border;
+    &__title {
+      @extend .dashApp__UI__utility__copy__h3;
+      margin-bottom: 1rem;
+    }
+    &__subtitle {
+      @extend .dashApp__UI__utility__copy__h4;
+      margin-bottom: 1rem;
+    }
+    &__highlight {
+      @extend .dashApp__UI__utility__copy__h5;
+      margin-top: 0;
+      margin-bottom: 0;
+      color: $c-scheme--highlight;
+    }
+  }
+}
+// =============================
+// Data Card
+//==============================
+.dashApp__UI__datacard {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  margin: 0;
+
+  &__header {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  &__footer {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+  }
+
+  &__title {
+    @extend .dashApp__UI__utility__copy__h2;
+
+    text-transform: capitalize;
+  }
+
+  &__data {
+    @extend .dashApp__UI__utility__copy__h3;
+
+    text-transform: capitalize;
+  }
+
+  &__tooltip {
+    position: relative;
+
+    &__button {
+      @extend .dashApp__UI__utility__button--reset;
+
+      position: relative;
+
+      transform: scale(0.6);
+    }
+
+    &__info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: fit-content;
+      padding: 0.5rem;
+      transform-origin: center;
+      width: 200px;
+      min-height: 80px;
+      align-items: center;
+      transform: translate(-8rem, 2rem);
+      background: $c-scheme--highlight;
+      @extend .dashApp__UI__utility__copy__h5;
+
+      height: auto;
+      z-index: 2;
+      display: flex;
+    }
+  }
+}
+
+// =============================
+// Start Footer
+//==============================
+.dashApp__UI__footer {
+  padding: 0;
+
+  margin-top: 3rem;
+  background: $c-scheme--bg;
+  border-top: 2px solid $c-scheme--highlight;
+  display: flex;
+  width: 100%;
+  flex-flow: row;
+  gap: 1rem;
+  justify-content: space-around;
+  text-transform: capitalize;
+  &__nav {
+    display: flex;
+    flex-flow: row;
+    gap: 1rem;
+    padding: 1rem;
+    @extend .dashApp__UI__utility__main-content-offset;
+
+    @media screen and (max-width: 420px) {
+      flex-flow: column;
+    }
+
+    &__item {
+      display: contents;
+    }
+    &__item__link {
+      @extend .dashApp__UI__utility__copy__h5;
+      transition: color 0.3s ease-in-out;
+      text-decoration: none;
+      &:hover,
+      &:hover {
+        color: $c-scheme--highlight;
+        transition: color 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+// =============================
+// End Footer
+//==============================
+
+// input:required:focus:valid {
+//   background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+//   background-size: 25px;
+// }

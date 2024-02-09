@@ -1,0 +1,124 @@
+
+// =============================
+// start header
+//==============================
+.dashApp__UI {
+    &__container {
+      max-width: 1200px;
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      flex-flow: column;
+      border: 0;
+      // toggle
+      // overflow: hidden;
+  
+      transition: width ease-in-out 0.25s;
+    }
+  
+    // =============================
+    // Start header
+    //==============================
+  
+    &__header {
+      display: grid;
+      grid-template-columns: 50px 1fr 300px;
+      width: 100%;
+      gap: 1rem;
+      z-index: 11;
+      padding: 0.5rem;
+      border-bottom: 2px solid $c-scheme--highlight;
+      box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+      color: $c-scheme--text;
+      text-transform: capitalize;
+      margin-bottom: 1rem;
+      justify-content: space-between;
+  
+      @media screen and (max-width: 680px) {
+        grid-template-columns: 50px 1fr 50px;
+      }
+      &__logo {
+        font-size: 4rem;
+        width: 100px;
+      }
+      &__nav {
+        &__list {
+          display: flex;
+          flex-flow: row;
+          gap: 1rem;
+          list-style: none;
+          &__item {
+            font-size: 2rem;
+          }
+        }
+      }
+  
+      &__profile {
+        display: flex;
+        flex-flow: row-reverse;
+        align-items: center;
+        gap: 1rem;
+        &__button {
+          display: flex;
+          flex-flow: column;
+          width: 50px;
+          height: 50px;
+          font-size: 3rem;
+          border-radius: 100%;
+          justify-content: center;
+          align-items: center;
+          padding: 0.5rem;
+          color: $c-scheme--highlight;
+          background: $c-scheme--text;
+          border: $c-scheme--highlight 1px solid;
+          @extend .dashApp__UI__utility__icon;
+          &:disabled {
+            background: transparent;
+            pointer-events: none;
+          }
+        }
+        &__nav {
+          display: flex;
+          flex-flow: row;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          transform-origin: center;
+        }
+  
+        &__nav__list {
+          border-radius: 0.3rem;
+          display: flex;
+          flex-flow: column;
+          position: fixed;
+          top: 0px;
+          min-width: 200px;
+          right: 0;
+          gap: 1rem;
+          transform: translate(4%, -12px);
+          list-style: none;
+          background: $c-scheme--bg;
+          border: 2px dashed $c-scheme--highlight;
+  
+          padding: 1rem;
+          transform-origin: center;
+          z-index: 100;
+        }
+        &__nav__list__item {
+          display: contents;
+  
+          &__link {
+            color: $c-scheme--text;
+            @extend .dashApp__UI__utility__copy__body;
+          }
+        }
+      }
+    }
+  }
+  
+  // =============================
+  // end header
+  //==============================
+  

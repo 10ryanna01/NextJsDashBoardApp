@@ -1,0 +1,264 @@
+// =============================
+// responsive table
+// styled by targeting HTML elements for now
+// TODO -- replace targeted elements with Classes
+//==============================
+.dashApp__UI {
+  $table-theme--bg: $c-scheme--button-bg;
+  $table-theme--border: #ddd;
+
+  &__responsive-table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: flex;
+    flex-flow: column;
+    padding-left: 65px;
+    color: $c-scheme--text;
+   
+    @media screen and (max-width: 780px) {
+      flex-flow: column-reverse;
+    }
+
+    table {
+      pointer-events: all;
+      border: 2px solid $c-scheme--button-bg;
+      box-shadow: 1px 10px 22px -8px rgba(0, 0, 0, 0.82);
+      padding: 0;
+      border-spacing: 0;
+      @media screen and (max-width: 780px) {
+        border: 0;
+      }
+    }
+
+    thead {
+      visibility: visible;
+      // border-bottom: 2px solid $table-theme--border;
+      @media screen and (max-width: 780px) {
+        visibility: hidden;
+        background: $c-scheme--text;
+        color: $c-scheme--highlight;
+        display: none;
+      }
+    }
+
+    tr {
+      display: table-row;
+      //   border-bottom-width: 1px;
+      border: 2px solid $c-scheme--button-bg;
+
+      margin-bottom: 0;
+      &:nth-child(even) {
+        background: $table-theme--bg;
+      }
+      @media screen and (max-width: 780px) {
+        // border: 1px solid $table-theme--border;
+
+        padding: 0;
+        margin-bottom: 10px;
+        display: block;
+        display: flex;
+        flex-flow: column;
+        max-width: 100%;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+
+    th,
+    td {
+      text-align: left;
+      min-width: 75px;
+      
+      max-width: 170px;
+      @media screen and (max-width: 780px) { 
+        min-width: none; 
+        max-width: none;
+      }
+
+    }
+    tr {
+      position: relative;
+      &:hover {
+        background: $c-scheme--highlight;
+      }
+    }
+
+    th {
+      text-transform: uppercase;
+      @extend .dashApp__UI__utility__copy__body;
+      font-weight: bold;
+      position: relative;
+      border-bottom: 2px solid $c-scheme--highlight;
+      padding: 10px;
+    }
+
+    td {
+      padding: 10px;
+      display: table-cell;
+      text-align: left;
+      @extend .dashApp__UI__utility__copy__body;
+      border-bottom: none;
+      word-break: break-all;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @media screen and (max-width: 780px) {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-bottom: 1px dashed $table-theme--border;
+      }
+    }
+
+    td:nth-of-type(1):before {
+      content: "";
+      display: none;
+
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Id";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(2):before {
+      content: "";
+      display: none;
+
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "First Name";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(3):before {
+      content: "";
+      display: none;
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Last Name";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(4):before {
+      content: "";
+      display: none;
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Date of Birth";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(5):before {
+      content: "";
+      display: none;
+
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Country";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(6):before {
+      content: "";
+      display: none;
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Email Address";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(7):before {
+      content: "";
+      display: none;
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Phone";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+    td:nth-of-type(8):before {
+      content: "";
+      display: none;
+      @media screen and (max-width: 780px) {
+        display: block;
+        content: "Age";
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+
+
+    
+  &__footer{
+    
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    margin-top: 2rem;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    @media screen and (max-width: 780px) {
+    flex-flow: column-reverse;
+ 
+    }
+   &__pagination{
+    display: flex;
+    flex-flow: row;    
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    @media screen and (max-width: 500px) {
+      display: none ;
+   
+      }
+    
+
+    
+  } 
+  &__pagenumber{
+gap: 1rem;
+    &__copy{
+      @extend .dashApp__UI__utility__copy__h5;
+      text-transform: capitalize;
+    }
+  }
+  }
+
+
+
+  }
+
+
+  //   close table wrap
+}
+
+ 
